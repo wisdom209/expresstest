@@ -1,0 +1,23 @@
+<%-include("./partials/head.ejs")%>
+<body>
+	<%-include("./partials/nav.ejs")%>
+	
+	<h1>Update student</h1>
+	
+	<form method="post" action= "/updatestudput?_method=PUT">
+		<input id="id" type="hidden" name="id" value=<%=`${result.id}`%> required />
+	
+		<label for="name"><b>Name</b></label> <br />
+		<input id="name" type="text" name="name" value=<%=`${result.name}`%> required /> <br/> <br/>
+		
+		<label for="department"><b>Department</b></label> <br />
+		<input id="department" type="text" name="department" value=<%=`${result.department}`%> required /> <br /><br />
+		
+		
+		<label for="age"><b>Age</b></label><br />
+		<input id="age" type="text" name="age" value=<%=`${result.age}`%> required /> <br /> <br />
+	
+		<button type="submit">Update</button>
+	</form>
+
+</body>

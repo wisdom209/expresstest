@@ -1,0 +1,18 @@
+<%-include("./partials/head.ejs")%>
+<body>
+    <div>
+        <%-include("./partials/nav.ejs")%>
+        <h1>Welcome to our page</h1>
+						
+						<%posts.map((post,index)=>{%>
+						    <p> <%=`${index + 1}. ${post.title} `%> </p>
+									
+						 <%})%>
+
+
+    </div>
+    <!-- Scripts -->
+    <script src=""></script>
+</body>
+
+</html>

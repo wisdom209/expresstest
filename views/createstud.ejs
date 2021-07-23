@@ -1,0 +1,21 @@
+<%-include("./partials/head.ejs")%>
+<body>
+	<%-include("./partials/nav.ejs")%>
+	
+	<h1>Add a new student</h1>
+	
+	<form method="post" action="/create">
+		
+		<label for="name"><b>Name</b></label> <br />
+		<input id="name" type="text" name="name" value="" required /> <br/> <br/>
+		
+		<label for="department"><b>Department</b></label> <br />
+		<input id="department" type="text" name="department" value="" required /> <br /><br />
+		
+		
+		<label for="age"><b>Age</b></label><br />
+		<input id="age" type="number" name="age" value="" required /> <br /> <br />
+	
+		<button type="submit">Submit</button>
+	</form>
+</body>

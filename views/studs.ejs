@@ -1,0 +1,52 @@
+<%-include("./partials/head.ejs")%>
+
+<body>
+	<%-include("./partials/nav.ejs")%>
+	
+	<h1>Student Table</h1>
+	<a href="/create">Add new student</a>
+	
+	<table>
+			<thead>
+				<tr>
+					<td>No</td>
+					<td>Name</td>
+					<td>Department</td>
+					<td>Age</td>
+					<td>Change</td>
+					<td>Remove</td>
+				</tr>
+			</thead>		
+			<tbody>
+					<%students.forEach((student, index)=>{%>
+							<tr>
+								<td><%=`${index+1}.`%></td>
+								<td><%=`${student.name.toLowerCase()[0].toUpperCase() + student.name.slice(1)}`%></td>
+								<td><%=`${student.department.toLowerCase()[0].toUpperCase() + student.department.slice(1)}`%></td>
+								<td><%=`${student.age}`%></td>
+								<td><a href = <%=`/updatestud/${student._id}`%>>Update</a></td>
+								<td><a href="#" class="delete" data-doc=<%=`${student._id}`%> >Delete</a></td>
+							</tr>
+					<%})%>
+			</tbody>
+	</table>
+	
+	<script>
+			document.querySelector("body").addEventListener("click", (e)=>{
+			  
+			   let anchor = e.target.closest(".delete")
+			   let id = anchor.dataset.doc
+			   
+			   let url = `/delstud/${id}`
+			   
+			   fetch(url, {method : "DELETE"}).then(async (res)=>{
+			       const data = await res.json()
+			  		   window.location.href = data
+			   }).catch(e=>{
+			       window.location.href = data
+			   })
+			    
+			})
+	
+	</script>
+</body>
