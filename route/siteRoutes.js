@@ -14,11 +14,17 @@ router.get("/about", siteController.get_about)
 router.get("/contact", siteController.get_contact)
 
 
+//protected routes
+router.use("/studs", isAuth)
+router.use("/create", isAuth)
+router.use("/updatestud/:id", isAuth)
+router.use("/updatestudput", isAuth)
+router.use("/delstud/:id", isAuth)
+
 //user routes
 
 router.post("/create", userController.post_create)
 
-router.use("/studs", isAuth)
 router.get("/studs", userController.get_studs)
 
 router.get("/create", userController.get_create)

@@ -13,8 +13,8 @@ app.use(express.urlencoded())
 app.set('view engine', 'ejs')
 
 
-app.listen(7700, () => {
-    console.log("app listening on port 7700")
+app.listen(3000, () => {
+    console.log("app listening on port 3000")
 })
 
 const dburl = "mongodb://localhost:27017/test"

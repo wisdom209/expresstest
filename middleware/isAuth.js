@@ -12,7 +12,7 @@ const isAuth = (req, res, next) => {
             console.log("verified")
             next()
         } else {
-            res.redirect("/")
+            res.redirect("/login")
         }
 
     }

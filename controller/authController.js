@@ -82,6 +82,8 @@ const login_post = async(req, res) => {
         bcrypt.compare(password, data.password).then((same) => {
 
             //sign jwt
+            if(same){
+                 console.log(data.password, password, same)
             let token = createAccessToken({
                 email
             })
@@ -91,8 +93,26 @@ const login_post = async(req, res) => {
             })
            
             res.redirect("/")
+            }else{
+                
+                console.log("password incorrect")
+            res.cookie("jwt", "", {
+                maxAge: 10,
+                httpOnly: true
+            })
+           
+            res.redirect("/login")
+            }
+           
         }).
         catch (e => {
+           
+            console.log("password incorrect")
+            res.cookie("jwt", "", {
+                maxAge: 10,
+                httpOnly: true
+            })
+           
             res.redirect("/login")
         })
 
